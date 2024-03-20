@@ -1,4 +1,4 @@
-import { Text, SafeAreaView, StyleSheet, View } from 'react-native';
+import { Text, SafeAreaView, StyleSheet, View, Button } from 'react-native';
 import React from 'react';
 
 import Task from './components/Task';
@@ -20,8 +20,9 @@ export default function App() {
 
       </View>
       <View style={styles.fakeBox}>
-        <Text style={styles.fakeText}>ADD NEW TODO</Text>
+        <Button title= "ADD NEW TODO" style={styles.fakeBox} />
       </View>
+      
 
 
 
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     flex:1,
   },
   fakeBox:{
-    marginTop: 'auto',
+    marginTop: 200,
     padding:15,
     backgroundColor: 'blue',
     borderRadius:10,
