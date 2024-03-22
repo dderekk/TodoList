@@ -1,6 +1,7 @@
 import { Text, SafeAreaView, StyleSheet, View, Button } from 'react-native';
 import React from 'react';
 
+import { COLORS } from './components/Color';
 import Task from './components/Task';
 
 
@@ -20,7 +21,7 @@ export default function App() {
 
       </View>
       <View style={styles.fakeBox}>
-        <Button title= "ADD NEW TODO" style={styles.fakeBox} />
+        <Button title= "ADD NEW TODO" />
       </View>
       
 
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    backgroundColor: '#ecf0f1',
+    backgroundColor: COLORS.BBC,
     padding: 8,
   },
   paragraph: {
@@ -63,8 +64,8 @@ const styles = StyleSheet.create({
   },
   fakeBox:{
     marginTop: 200,
-    padding:15,
-    backgroundColor: 'blue',
+    padding:6,
+    backgroundColor: COLORS.ButtonOutter,
     borderRadius:10,
   },
   fakeText:{
