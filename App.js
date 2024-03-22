@@ -11,7 +11,7 @@ export default function App() {
       {/* Today's Tasks */}
       <View style={styles.taskWrapper}>
         <View style={styles.divider} ></View>
-        <Text style={styles.sectionTitle}>Todays' Tasks</Text>
+        <Text style={styles.sectionTitle}>My Todo List</Text>
 
         <View style={styles.items}>
           <Task text={'task one'}></Task>
