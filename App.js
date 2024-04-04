@@ -1,7 +1,7 @@
 import { Home } from "./screen/Home";
 import { NewToDo } from "./screen/NewToDo";
 
-// This is for navigation part
+// This is for navigation
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
