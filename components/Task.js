@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, StyleSheet, View, TouchableOpacity } from 'react-native';
-
-const Task = (props) => {
+import { COLORS } from './Color';
+export const Task = (props) => {
     return(
         <View style={styles.item}>
             <View style={styles.itemLeft}>
@@ -15,7 +15,7 @@ const Task = (props) => {
 }
 const styles = StyleSheet.create({
     item:{
-        backgroundColor:'#FFF',
+        backgroundColor: COLORS.White,
         padding: 15,
         borderRadius:10,
         flexDirection: 'row',
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     square:{
         width: 24,
         height: 24,
-        backgroundColor:'55BCF6',
+        backgroundColor: COLORS.Squre,
         opacity: 0.4,
     },
     itemText:{
@@ -41,9 +41,8 @@ const styles = StyleSheet.create({
         marginLeft:'auto',
         width: 12,
         height: 12,
-        borderColor: '#55bcf6',
+        borderColor: COLORS.LittleDot,
         borderWidth: 2,
         borderRadius: 5,
     },
 });
-export default Task;
