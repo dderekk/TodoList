@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
-        position: 'absolute', 
+        position: 'absolute',  // this is used to fix the position
         left: 20,
         right:20,
         bottom: 0, 
