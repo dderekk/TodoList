@@ -1,5 +1,5 @@
-import { Home } from "./screen/Home";
-import { NewToDo } from "./screen/NewToDo";
+import { Home } from "./src/screen/Home"
+import { NewToDo } from "./src/screen/NewToDo";
 
 // This is for navigation
 import { NavigationContainer } from "@react-navigation/native";

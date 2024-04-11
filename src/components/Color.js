@@ -15,5 +15,7 @@ export const COLORS = {
     ButtonText: '#2a5caa',
     White: '#FFF',
     LittleDot: '#55bcf6',
-    Squre: '#97E7E1'
+    Squre: '#97E7E1',
+    CompleteSqure: '#1d953f',
+    CompleteTitle: '#999',
   };

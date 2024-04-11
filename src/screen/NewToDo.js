@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, StyleSheet, Alert } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
+
+import { loadData,saveData } from '../datamodel/mydata';
 import { ButtonPrototype } from '../components/ButtonPrototype'; 
 import { Title } from '../components/Title';
 import { COLORS } from '../components/Color';
@@ -8,16 +10,43 @@ import { COLORS } from '../components/Color';
 export function NewToDo() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    useEffect(() => {
+        const fn = async () => {
+          const data = await loadData();
+          setTitle(data?.title || '');
+          setDescription(data?.description || '');
+        };
+        fn();
+      }, []);
     
     const navigation = useNavigation();
 
     const handleCancel = () => {
         navigation.goBack();
     };
+    const descriptionChangeHandler = (val) => setDescription(val);
 
-    const handleSave = () => {
+    const handleSave = async () => {
+        if (title.trim() === '' || description.trim() === '') {
+            // If either is empty, just return without saving
+            return;
+        }
         console.log('Saved:', title, description);
+        const newTodo = { title, description, id: Date.now(),completed:false }; 
+        await saveData(newTodo);
+
+        Alert.alert("Success", "Todo Added Successfully", [
+            { text: "OK", onPress: () => {
+                setTitle('');
+                setDescription('');
+            }}
+        ]);
+
+        // Clear the input fields
+        setTitle('');
+        setDescription('');
     };
+      
 
     return (
         <View style={styles.container}>
@@ -26,7 +55,7 @@ export function NewToDo() {
             <TextInput
                 style={styles.input}
                 value={title}
-                onChangeText={setTitle}
+                onChangeText={(text) => setTitle(text)}
                 placeholder="My new todo title"
             />
 
@@ -34,7 +63,7 @@ export function NewToDo() {
             <TextInput
                 style={styles.inputMultiline}
                 value={description}
-                onChangeText={setDescription}
+                onChangeText={(text) => setDescription(text)}
                 placeholder="This is the description of my new todo"
                 multiline
                 numberOfLines={4}
@@ -42,13 +71,13 @@ export function NewToDo() {
 
             <View style={styles.buttonContainer}>
                 <ButtonPrototype 
-                    label='  Cancel  ' 
+                    label='  Back  ' 
                     icon='close-circle-outline' 
                     fn={handleCancel} 
                     Bsize={35}
                 />
                 <ButtonPrototype 
-                    label='   Save   ' 
+                    label='  Save  ' 
                     icon='checkmark-circle-outline' 
                     fn={handleSave} 
                     Bsize={35}
@@ -94,15 +123,14 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         alignItems: 'center',
         padding: 20,
-        position: 'absolute',  // this is used to fix the position
+        position: 'absolute', 
         left: 20,
-        right:20,
-        bottom: 0, 
-        gap:'20%',
-      },
+        right: 20,
+        bottom: 0,
+    },
     buttonText: {
         color: 'white',
         fontSize: 18,
