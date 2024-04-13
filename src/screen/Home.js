@@ -10,9 +10,7 @@ import { deleteTodo,updateData } from '../datamodel/mydata';
 
 import { useNavigation } from "@react-navigation/native";
 
-//import AsyncStorage from "@react-native-async-storage/async-storage";
 export function Home() {
-  //AsyncStorage.clear();
   const [todos, setTodos] = useState([
     { id: 1, title: 'First Task', description: 'Description of first task', completed: false },
   ]);
