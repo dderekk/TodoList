@@ -31,7 +31,6 @@ export function NewToDo() {
             // If either is empty, just return without saving
             return;
         }
-        console.log('Saved:', title, description);
         const newTodo = { title, description, id: Date.now(),completed:false }; 
         await saveData(newTodo);
 

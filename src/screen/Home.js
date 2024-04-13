@@ -34,7 +34,6 @@ export function Home() {
   }, [navigation]);
 
   const gotoAddNewHandler = () => navigation.navigate("NewToDo");
-  console.log(todos);
 
   // The renderItem function for FlatList
   const renderTodoItem = ({ item }) => {

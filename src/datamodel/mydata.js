@@ -25,7 +25,6 @@ export const saveData = async (newTodo) => {
       let updatedTodos = loadedTodos && loadedTodos.Todos ? [...loadedTodos.Todos] : [];
       updatedTodos.push(newTodo);
       const myDataStr = JSON.stringify({ Todos: updatedTodos });
-      console.log("saveData:", myDataStr);
       await AsyncStorage.setItem(key, myDataStr);
     } catch (e) {
       console.error("Error in saveData:", e);
@@ -40,7 +39,6 @@ export const deleteTodo = async (id) => {
     const updatedTodos = data.Todos.filter(todo => todo.id !== id); // Correct structure
 
     await AsyncStorage.setItem(key, JSON.stringify({ ...data, Todos: updatedTodos }));
-    console.log('Todo deleted successfully');
   } catch (e) {
     console.error('Error deleting todo:', e);
   }
