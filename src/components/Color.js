@@ -18,4 +18,5 @@ export const COLORS = {
     Squre: '#97E7E1',
     CompleteSqure: '#1d953f',
     CompleteTitle: '#999',
+    Desicp:'#333',
   };
