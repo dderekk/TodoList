@@ -38,7 +38,7 @@ npm install -g expo-cli
 
 Clone the repository and install dependencies:
 ```bash
-git clone https://github.com/your-username/my-todo-list.git
+git clone https://github.com/dderekk/TodoList.git
 cd my-todo-list
 npm install
 ```
